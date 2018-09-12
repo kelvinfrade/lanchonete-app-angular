@@ -6,15 +6,16 @@
     <th>Telefone</th>
     <th>Cpf</th>
   </tr>
-  <tr>
+  <tr *ngFor="let cliente of clientes">
     <td>1</td>
-    <td>100</td>
-    <td>100</td>
-    <td>100</td>
-    <td>100</td>
+    <td>{{ cliente.nome }}</td>
+    <td>{{ cliente.email }}</td>
+    <td>{{ cliente.telefone }}</td>
+    <td>{{ cliente.cpf }}</td>
   </tr>
   <br>
   <br>
   <br>
   <button class="waves-effect waves-light btn-large">Adicionar</button>
 </table>
+
