@@ -17,13 +17,13 @@ const routes:Routes = [
         component:ClientesComponent
     },
     {
+        path:'produtos',
+        component:ProdutosComponent
+    },
+    {
         path:'**',
         component:ErrorComponent
     },
-    {
-        path:'produtos',
-        component:ProdutosComponent
-    }
 ]
 
 export const RoutingModule = RouterModule.forRoot(routes);

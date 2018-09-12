@@ -19,7 +19,8 @@ import { ProdutosComponent } from './pages/produtos/produtos.component';
   ],
   imports: [
     BrowserModule,
-    RoutingModule
+    RoutingModule,
+
     
   ],
   providers: [],
