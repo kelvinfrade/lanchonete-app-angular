@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutosService } from 'src/app/services/produtos.service';
 
 @Component({
   selector: 'app-produtos',
@@ -6,10 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./produtos.component.css']
 })
 export class ProdutosComponent implements OnInit {
+  produtos:any;
+  constructor(private produtoService:ProdutosService) {   }
 
-  constructor() { }
+    getProdutos(){
+      this.produtoService.getProdutos().then(data =>{
+        this.produtos = data;
+      })
+    }
 
-  ngOnInit() {
+    exclui(produto){
+      this.produtoService.deleteProduto(produto).subscribe(res =>{
+        if(res == null ){
+        console.log('Excluido com sucesso!')
+        this.getProdutos();
+      }
+      })
+
+    }
+
+    ngOnInit() {
+    this.getProdutos();
   }
 
 }

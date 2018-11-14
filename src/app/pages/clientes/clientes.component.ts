@@ -16,8 +16,19 @@ export class ClientesComponent implements OnInit {
       })
     }
 
+    exclui(cliente){
+      this.clienteService.deleteCliente(cliente).subscribe(res =>{
+        if(res == null ){
+        console.log('Excluido com sucesso!')
+        this.getClientes();
+      }
+      })
+      
 
-  ngOnInit() {
+
+    }
+
+    ngOnInit() {
     this.getClientes();
   }
 

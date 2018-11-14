@@ -2,29 +2,29 @@ import { Injectable } from '@angular/core';
 import { apiUrl } from '../env'
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Cliente } from '../models/cliente';
+import { Produto } from '../models/produto';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClientesService {
+export class ProdutosService {
   constructor(private http: HttpClient) { }
 
-  insertCliente(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(apiUrl + 'clientes/', cliente)
+  insertProduto(produto: Produto): Observable<Produto> {
+    return this.http.post<Produto>(apiUrl + 'produtos/', produto)
   }
 
-  updateCliente(cliente: Cliente): Observable<Cliente> {
-    return this.http.put<Cliente>(apiUrl + 'clientes/' + cliente.id + '/', cliente)
+  updateProduto(produto: Produto): Observable<Produto> {
+    return this.http.put<Produto>(apiUrl + 'produtos/' + produto.id + '/', produto)
   }
 
-  deleteCliente(cliente: Cliente): Observable<Cliente> {
-    return this.http.delete<Cliente>(apiUrl + 'clientes/' + cliente.id + '/')
+  deleteProduto(produto: Produto): Observable<Produto> {
+    return this.http.delete<Produto>(apiUrl + 'produtos/' + produto.id + '/')
   }
 
-  getCliente(id) {
+  getProduto(id) {
     return new Promise(resolve => {
-      this.http.get(apiUrl + 'clientes/' + id + '/').subscribe(data => {
+      this.http.get(apiUrl + 'produtos/' + id + '/').subscribe(data => {
         console.log('Data in Service: ' + data)
         resolve(data)
       },
@@ -35,9 +35,9 @@ export class ClientesService {
     })
   }
   
-  getClientes() {
+  getProdutos() {
     return new Promise(resolve => {
-      this.http.get(apiUrl + 'clientes/').subscribe(data => {
+      this.http.get(apiUrl + 'produtos/').subscribe(data => {
         console.log('Data in Service: ' + data)
         resolve(data)
       },

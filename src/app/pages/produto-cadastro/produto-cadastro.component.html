@@ -1,0 +1,36 @@
+<div class="row">
+  <form class="col s12" (ngSubmit)="salvaProduto()">
+    <div class="row">
+      <div class="col s11">
+        <h5>{{ titulo }}</h5>
+      </div>
+      <div class="col s1">
+        <a class="waves-effect waves-light btn-large" routerLink="/produtos">Voltar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input placeholder="Descrição" name="descricao" [(ngModel)]="produto.descricao" type="text" class="validate">
+        <label for="produto"></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="Valor" name="valor" [(ngModel)]="produto.valor" type="text" class="validate">
+        <label for="valor"></label>
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="Quantidade" name="quantidade" [(ngModel)]="produto.quantidade" type="text" class="validate">
+        <label for="quantidade"></label>
+      </div>
+
+    </div>
+
+   
+    <button class="btn waves-effect waves-light" type="submit" name="action">{{ textBtn1 }}
+
+    </button>
+    <div class="card-panel deep-orange darken-1" role="alert" *ngIf="sucesso">Operação realizada com sucesso!</div>
+  </form>
+</div>
+{{produto | json}}

@@ -1,18 +1,23 @@
 <table class="table highlight">
   <tr>
-    <th>id</th>
+    <th>ID</th>
     <th>Nome</th>
-    <th>Email</th>
+    <th>E-mail</th>
     <th>Telefone</th>
-    <th>Cpf</th>
+    <th>CPF</th>
+    <th></th>
   </tr>
   <tr *ngFor="let cliente of clientes">
-    <td>1</td>
+    <td>{{ cliente.id }}</td>
     <td>{{ cliente.nome }}</td>
     <td>{{ cliente.email }}</td>
     <td>{{ cliente.telefone }}</td>
     <td>{{ cliente.cpf }}</td>
-  </tr>
+    <td>
+      <a class="waves-effect waves-light btn-large" routerLink="/clientes/edita/{{ cliente.id }}"><i class="material-icons"></i>Editar</a>
+      &nbsp;<a class="waves-effect waves-light btn-large" (click)="exclui(cliente)"><i class="material-icons"></i>Excluir</a>
+    </td>
+    </tr>
   <br>
   <br>
   <br>

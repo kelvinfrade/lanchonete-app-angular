@@ -10,6 +10,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { ProdutosComponent } from './pages/produtos/produtos.component';
 import { ClienteCadastroComponent } from './pages/cliente-cadastro/cliente-cadastro.component';
+import { ProdutoCadastroComponent } from './pages/produto-cadastro/produto-cadastro.component';
+import { LoginComponent } from './pages/login/login.component';
+import { VendasComponent } from './pages/vendas/vendas.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { ClienteCadastroComponent } from './pages/cliente-cadastro/cliente-cadas
     HomeComponent,
     ErrorComponent,
     ProdutosComponent,
-    ClienteCadastroComponent
+    ClienteCadastroComponent,
+    ProdutoCadastroComponent,
+    LoginComponent,
+    VendasComponent
   ],
   imports: [
     BrowserModule,
