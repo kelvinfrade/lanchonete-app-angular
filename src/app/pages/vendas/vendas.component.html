@@ -1,3 +1,45 @@
-<p>
-  vendas works!
-</p>
+<div class="row">
+  <form class="col s12" (ngSubmit)="salva()">
+    <div class="row">
+      <div class="col s11">
+        <h5>{{ titulo }}</h5>
+      </div>
+      <div class="col s1">
+        <a class="waves-effect waves-light btn-large" routerLink="/produtos">Voltar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <select name="cliente" [(ngModel)]="venda.cliente"  class="validate" aria-placeholder="selecione">
+            <label for="cliente">Cliente:</label>
+          <option></option>
+          <option *ngFor="let cliente of clientes" value="{{ cliente.url }}">{{ cliente.nome }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <select name="produto" [(ngModel)]="venda.produto" class="validate" placeholder="selecione" (change)="calcTotal">
+            <label for="produto">Produto:</label>
+          <option></option>
+          <option *ngFor="let produto of produtos; let i = index" [value]="i">{{ produto.descricacao }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Quantidade" name="quantidade" [(ngModel)]="venda.quantidade" type="number" class="validate">
+          <label for="produto">Quantidade:</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Total" name="total" [(ngModel)]="total" type="number" class="validate">
+          <label for="total">Total:</label>
+        </div>
+      </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">{{ textBtn }}
+
+    </button>
+    <div class="card-panel deep-orange darken-1" role="alert" *ngIf="sucesso">Operação realizada com sucesso!</div>
+  </form>
+</div>
+{{produto | json}}
